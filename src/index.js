@@ -1,3 +1,5 @@
+import getCoordinates from './get-coordinates';
+
 const api_key = '5405e3e8a66b7d0b54e7b940115d07f9';
 
 const search = document.getElementById('search');
@@ -34,25 +36,29 @@ search.addEventListener('input', function (event) {
 	const errors = document.querySelectorAll('.error');
 
 	if (errors.length === 0) {
-		const apiString =
+		const apiStringLocation =
 			'http://api.openweathermap.org/geo/1.0/direct?q=' +
 			searchValue +
 			'&limit=5&appid=' +
 			api_key;
 		const img = document.createElement('img');
 		async function getLocation() {
-			const response = await fetch(apiString, { mode: 'cors' });
+			const response = await fetch(apiStringLocation, { mode: 'cors' });
 			const searchArray = await response.json();
 			if (Array.isArray(searchArray)) {
 				searchArray.forEach((element) => {
+					const name = element.name;
+					const state = element.state;
+					const country = element.country;
 					const locationInfo =
-						element.name + ', ' + element.state + ', ' + element.country;
+						name + ', ' + state + ', ' + country;
 					const suggestion = document.createElement('li');
 					suggestion.textContent = locationInfo;
 					searchSuggestions.appendChild(suggestion);
 					suggestion.addEventListener('click', () => {
 						search.value = locationInfo;
-                        searchSuggestions.innerHTML = '';
+						searchSuggestions.innerHTML = '';
+						getCoordinates(name, state, country);
 					});
 				});
 			}
