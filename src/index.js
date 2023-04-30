@@ -25,10 +25,10 @@ function validateSearch() {
 
 search.addEventListener('blur', validateSearch);
 
-search.addEventListener('input', function(event) {
-    const searchValue = event.target.value.trim();;
-    console.log(searchValue);
-    validateSearch();
+search.addEventListener('input', function (event) {
+	const searchValue = event.target.value.trim();
+	console.log(searchValue);
+	validateSearch();
 	const errors = document.querySelectorAll('.error');
 
 	if (errors.length === 0) {
@@ -40,8 +40,13 @@ search.addEventListener('input', function(event) {
 		const img = document.createElement('img');
 		async function getLocation() {
 			const response = await fetch(apiString, { mode: 'cors' });
-			const locationData = await response.json();
-			console.log(locationData);
+			const searchArray = await response.json();
+			if (Array.isArray(searchArray)) {
+				searchArray.forEach((element) => {
+                    const locationInfo = element.name + ", " + element.state + ", " + element.country;
+					console.log(locationInfo);
+				});
+			}
 		}
 		getLocation().catch(function (err) {
 			alert('An error occurred while fetching the data.');
@@ -52,5 +57,5 @@ search.addEventListener('input', function(event) {
 const container = document.querySelector('#container');
 const button = document.querySelector('#new-image');
 button.addEventListener('click', () => {
-    console.log('get weather from api')
+	console.log('get weather from api');
 });
