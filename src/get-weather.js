@@ -9,9 +9,6 @@ function getWeather(city, latitude, longitude, api_key) {
 	async function retreiveWeatherData() {
 		const response = await fetch(apiStringWeather, { mode: 'cors' });
 		const weatherArray = await response.json();
-
-        console.log(weatherArray)
-
 		const main = weatherArray.weather[0].main;
 		const description = weatherArray.weather[0].description;
 		const temp = Math.floor(weatherArray.main.temp);
