@@ -1,4 +1,4 @@
-function getWeather(latitude, longitude, api_key) {
+function getWeather(city, latitude, longitude, api_key) {
 	const apiStringWeather =
 		'https://api.openweathermap.org/data/2.5/weather?lat=' +
 		latitude +
@@ -15,13 +15,14 @@ function getWeather(latitude, longitude, api_key) {
 		const tempMax = weatherArray.main.temp_max;
 		const humidity = weatherArray.main.humidity;
 		const windSpeed = weatherArray.wind.speed;
-		displayWeather(description, temp, tempMin, tempMax, humidity, windSpeed);
+		displayWeather(city, description, temp, tempMin, tempMax, humidity, windSpeed);
 	}
 	retreiveWeatherData().catch(function (err) {
 		alert('An error occurred while fetching the data.');
 	});
 }
 
+const displayCity = document.querySelector('#city');
 const displayDescription = document.querySelector('#description');
 const displayTemp = document.querySelector('#temp');
 const displayTempMin = document.querySelector('#temp-min');
@@ -30,13 +31,15 @@ const displayHumidity = document.querySelector('#humidity');
 const displayWindSpeed = document.querySelector('#wind-speed');
 
 function displayWeather(
-	description,
+	city,
+    description,
 	temp,
 	tempMin,
 	tempMax,
 	humidity,
 	windSpeed
 ) {
+    displayCity.textContent = city;
 	displayDescription.textContent = 'Weather: ' + description;
 	displayTemp.textContent = 'Temperature: ' + temp;
 	displayTempMin.textContent = 'Low Temp: ' + tempMin;
