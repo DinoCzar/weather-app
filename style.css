@@ -1,0 +1,23 @@
+form input {
+	display: block;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+
+.error,
+.error-div {
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
+}
