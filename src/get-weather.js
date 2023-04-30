@@ -23,6 +23,7 @@ function getWeather(city, latitude, longitude, api_key) {
 	});
 }
 
+const displayDiv = document.getElementById('display-div');
 const displayCity = document.querySelector('#city');
 const displayMain = document.querySelector('#main');
 const displayDescription = document.querySelector('#description');
@@ -51,7 +52,7 @@ function displayWeather(
 	displayHumidity.textContent = 'Humidity: ' + humidity;
 	displayWindSpeed.textContent = 'Wind Speed: ' + windSpeed;
     const cssSelector = main.charAt(0).toLowerCase() + main.slice(1);
-    document.body.classList.add(cssSelector);
+    displayDiv.classList.add(cssSelector);
 }
 
 export default getWeather;

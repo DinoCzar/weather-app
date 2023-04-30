@@ -2,6 +2,7 @@ import getWeather from './get-weather';
 
 const api_key = '5405e3e8a66b7d0b54e7b940115d07f9';
 
+const displayDiv = document.getElementById('display-div');
 const search = document.getElementById('search');
 const searchSuggestions = document.getElementById('search-suggestions');
 const displayMain = document.querySelector('#main');
@@ -37,7 +38,7 @@ function validateSearch() {
 search.addEventListener('blur', validateSearch);
 
 search.addEventListener('input', function (event) {
-    document.body.className = '';
+    displayDiv.className = '';
 	searchSuggestions.innerHTML = '';
     displayCity.innerHTML = '';
     displayMain.innerHTML = '';
