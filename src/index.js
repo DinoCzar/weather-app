@@ -25,14 +25,13 @@ function validateSearch() {
 
 search.addEventListener('blur', validateSearch);
 
-const container = document.querySelector('#container');
-const button = document.querySelector('#new-image');
-button.addEventListener('click', () => {
-	validateSearch();
+search.addEventListener('input', function(event) {
+    const searchValue = event.target.value.trim();;
+    console.log(searchValue);
+    validateSearch();
 	const errors = document.querySelectorAll('.error');
 
 	if (errors.length === 0) {
-		const searchValue = search.value.trim();
 		const apiString =
 			'http://api.openweathermap.org/geo/1.0/direct?q=' +
 			searchValue +
@@ -48,4 +47,10 @@ button.addEventListener('click', () => {
 			alert('An error occurred while fetching the data.');
 		});
 	}
+});
+
+const container = document.querySelector('#container');
+const button = document.querySelector('#new-image');
+button.addEventListener('click', () => {
+    console.log('get weather from api')
 });
