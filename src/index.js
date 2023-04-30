@@ -4,6 +4,7 @@ const api_key = '5405e3e8a66b7d0b54e7b940115d07f9';
 
 const search = document.getElementById('search');
 const searchSuggestions = document.getElementById('search-suggestions');
+const displayMain = document.querySelector('#main');
 const displayCity = document.querySelector('#city');
 const displayDescription = document.querySelector('#description');
 const displayTemp = document.querySelector('#temp');
@@ -38,6 +39,7 @@ search.addEventListener('blur', validateSearch);
 search.addEventListener('input', function (event) {
 	searchSuggestions.innerHTML = '';
     displayCity.innerHTML = '';
+    displayMain.innerHTML = '';
 	displayDescription.innerHTML = '';
 	displayTemp.innerHTML = '';
 	displayTempMin.innerHTML = '';
