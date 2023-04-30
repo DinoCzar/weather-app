@@ -1,6 +1,7 @@
 const api_key = '5405e3e8a66b7d0b54e7b940115d07f9';
 
 const search = document.getElementById('search');
+const searchSuggestions = document.getElementById('search-suggestions');
 
 function showError(input, message) {
 	const errorDiv = document.getElementById(`${input.id}-error`);
@@ -26,8 +27,9 @@ function validateSearch() {
 search.addEventListener('blur', validateSearch);
 
 search.addEventListener('input', function (event) {
+	searchSuggestions.innerHTML = '';
+
 	const searchValue = event.target.value.trim();
-	console.log(searchValue);
 	validateSearch();
 	const errors = document.querySelectorAll('.error');
 
@@ -43,7 +45,11 @@ search.addEventListener('input', function (event) {
 			const searchArray = await response.json();
 			if (Array.isArray(searchArray)) {
 				searchArray.forEach((element) => {
-                    const locationInfo = element.name + ", " + element.state + ", " + element.country;
+					const locationInfo =
+						element.name + ', ' + element.state + ', ' + element.country;
+					const suggestion = document.createElement('li');
+					suggestion.textContent = locationInfo;
+					searchSuggestions.appendChild(suggestion);
 					console.log(locationInfo);
 				});
 			}
