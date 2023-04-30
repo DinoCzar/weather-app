@@ -11,6 +11,7 @@ body {
 
 #display-div {
     width: 350px;
+    height: 675px
 }
 
 img {
@@ -45,7 +46,7 @@ label {
 
 form input {
 	display: block;
-	padding: 5px;
+	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	width: 100%;
@@ -66,8 +67,10 @@ ul {
 }
 
 li {
-	background-color: lightgray;
+	background-color: white;
 	margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
 	padding: 5px;
 }
 
@@ -134,6 +137,10 @@ li {
 }
 
 /* weather types */
+
+.background-image {
+	background-image: url(../src/images/background-image.jpeg);
+}
 
 .thunderstorm {
 	background-image: url(../src/images/thunderstorm.jpeg);
