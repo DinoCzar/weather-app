@@ -9,22 +9,27 @@
 		<title>Weather App</title>
 	</head>
 	<body>
-		<div id='container'>
-		<form>
-			<label for='search'>Enter a location:</label>
-			<input type='text' id='search' required />
-		</form>
-		<ul id='search-suggestions'></ul>
-		<div id='search-error' class='error-div'></div>
-	
-			<div id='city'></div>
-			<div id='main'></div>
-			<div id='description'></div>
-			<div id='temp'></div>
-			<div id='temp-min'></div>
-			<div id='temp-max'></div>
-			<div id='humidity'></div>
-			<div id='wind-speed'></div>
+		<div id='display-div'>
+			<div id='search-div'>
+				<form>
+					<label for='search'>Enter a location:</label>
+					<input type='text' id='search' required />
+				</form>
+				<ul id='search-suggestions'></ul>
+				<div id='search-error' class='error-div'></div>
+			</div>
+			<div id='container'>
+				<div id='city'></div>
+				<div id='main-div'>
+					<div id='main'></div>
+					<div id='description'></div>
+				</div>
+				<div id='temp'></div>
+				<div id='temp-min'></div>
+				<div id='temp-max'></div>
+				<div id='humidity'></div>
+				<div id='wind-speed'></div>
+			</div>
 		</div>
 	</body>
 </html>
