@@ -3,6 +3,7 @@ import getWeather from './get-weather';
 const api_key = '5405e3e8a66b7d0b54e7b940115d07f9';
 
 const displayDiv = document.getElementById('display-div');
+const container = document.getElementById('container');
 const search = document.getElementById('search');
 const searchSuggestions = document.getElementById('search-suggestions');
 const displayMain = document.querySelector('#main');
@@ -13,6 +14,9 @@ const displayTempMin = document.querySelector('#temp-min');
 const displayTempMax = document.querySelector('#temp-max');
 const displayHumidity = document.querySelector('#humidity');
 const displayWindSpeed = document.querySelector('#wind-speed');
+
+displayDiv.classList.add('background-image');
+container.style.display = 'none';
 
 function showError(input, message) {
 	const errorDiv = document.getElementById(`${input.id}-error`);
@@ -38,16 +42,18 @@ function validateSearch() {
 search.addEventListener('blur', validateSearch);
 
 search.addEventListener('input', function (event) {
-    displayDiv.className = '';
+	displayDiv.className = '';
 	searchSuggestions.innerHTML = '';
-    displayCity.innerHTML = '';
-    displayMain.innerHTML = '';
+	displayCity.innerHTML = '';
+	displayMain.innerHTML = '';
 	displayDescription.innerHTML = '';
 	displayTemp.innerHTML = '';
 	displayTempMin.innerHTML = '';
 	displayTempMax.innerHTML = '';
 	displayHumidity.innerHTML = '';
 	displayWindSpeed.innerHTML = '';
+	displayDiv.classList.add('background-image');
+	container.style.display = 'none';
 
 	const searchValue = event.target.value.trim();
 	validateSearch();
@@ -79,6 +85,7 @@ search.addEventListener('input', function (event) {
 						searchSuggestions.innerHTML = '';
 						getWeather(city, latitude, longitude, api_key);
 						search.value = '';
+                        container.style.display = 'grid';
 					});
 				});
 			}
