@@ -47,7 +47,6 @@ search.addEventListener('input', function (event) {
 			const searchArray = await response.json();
 			if (Array.isArray(searchArray)) {
 				searchArray.forEach((element) => {
-                    console.log(element)
 					const city = element.name;
 					const state = element.state;
 					const country = element.country;
@@ -61,7 +60,7 @@ search.addEventListener('input', function (event) {
 					suggestion.addEventListener('click', () => {
 						search.value = locationInfo;
 						searchSuggestions.innerHTML = '';
-						getWeather(latitude, longitude);
+						getWeather(latitude, longitude, api_key);
 					});
 				});
 			}
