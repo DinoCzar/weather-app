@@ -1,4 +1,4 @@
-import getCoordinates from './get-coordinates';
+import getWeather from './get-weather';
 
 const api_key = '5405e3e8a66b7d0b54e7b940115d07f9';
 
@@ -47,18 +47,21 @@ search.addEventListener('input', function (event) {
 			const searchArray = await response.json();
 			if (Array.isArray(searchArray)) {
 				searchArray.forEach((element) => {
-					const name = element.name;
+                    console.log(element)
+					const city = element.name;
 					const state = element.state;
 					const country = element.country;
+                    const latitude = element.lat;
+                    const longitude = element.lon;
 					const locationInfo =
-						name + ', ' + state + ', ' + country;
+						city + ', ' + state + ', ' + country;
 					const suggestion = document.createElement('li');
 					suggestion.textContent = locationInfo;
 					searchSuggestions.appendChild(suggestion);
 					suggestion.addEventListener('click', () => {
 						search.value = locationInfo;
 						searchSuggestions.innerHTML = '';
-						getCoordinates(name, state, country);
+						getWeather(latitude, longitude);
 					});
 				});
 			}

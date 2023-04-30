@@ -1,5 +1,5 @@
-function getWeather(weather) {
-    console.log(weather)
+function getWeather(latitude, longitude) {
+    console.log(latitude + '' + longitude)
 }
 
 export default getWeather;
