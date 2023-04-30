@@ -61,7 +61,7 @@ search.addEventListener('input', function (event) {
 
 	if (errors.length === 0) {
 		const apiStringLocation =
-			'http://api.openweathermap.org/geo/1.0/direct?q=' +
+			'https://api.openweathermap.org/geo/1.0/direct?q=' +
 			searchValue +
 			'&limit=5&appid=' +
 			api_key;
