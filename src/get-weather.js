@@ -22,6 +22,13 @@ function getWeather(latitude, longitude, api_key) {
 	});
 }
 
+const displayDescription = document.querySelector('#description');
+const displayTemp = document.querySelector('#temp');
+const displayTempMin = document.querySelector('#temp-min');
+const displayTempMax = document.querySelector('#temp-max');
+const displayHumidity = document.querySelector('#humidity');
+const displayWindSpeed = document.querySelector('#wind-speed');
+
 function displayWeather(
 	description,
 	temp,
@@ -30,12 +37,12 @@ function displayWeather(
 	humidity,
 	windSpeed
 ) {
-console.log('Weather: ' + description)
-console.log('Temperature: ' + temp)
-console.log('Low Temp: ' + tempMin)
-console.log('High Temp: ' + tempMax)
-console.log('Humidity: ' + humidity)
-console.log('Wind Speed: ' + windSpeed)
+	displayDescription.textContent = 'Weather: ' + description;
+	displayTemp.textContent = 'Temperature: ' + temp;
+	displayTempMin.textContent = 'Low Temp: ' + tempMin;
+	displayTempMax.textContent = 'High Temp: ' + tempMax;
+	displayHumidity.textContent = 'Humidity: ' + humidity;
+	displayWindSpeed.textContent = 'Wind Speed: ' + windSpeed;
 }
 
 export default getWeather;

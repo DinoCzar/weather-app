@@ -4,6 +4,12 @@ const api_key = '5405e3e8a66b7d0b54e7b940115d07f9';
 
 const search = document.getElementById('search');
 const searchSuggestions = document.getElementById('search-suggestions');
+const displayDescription = document.querySelector('#description');
+const displayTemp = document.querySelector('#temp');
+const displayTempMin = document.querySelector('#temp-min');
+const displayTempMax = document.querySelector('#temp-max');
+const displayHumidity = document.querySelector('#humidity');
+const displayWindSpeed = document.querySelector('#wind-speed');
 
 function showError(input, message) {
 	const errorDiv = document.getElementById(`${input.id}-error`);
@@ -30,6 +36,12 @@ search.addEventListener('blur', validateSearch);
 
 search.addEventListener('input', function (event) {
 	searchSuggestions.innerHTML = '';
+	displayDescription.innerHTML = '';
+	displayTemp.innerHTML = '';
+	displayTempMin.innerHTML = '';
+	displayTempMax.innerHTML = '';
+	displayHumidity.innerHTML = '';
+	displayWindSpeed.innerHTML = '';
 
 	const searchValue = event.target.value.trim();
 	validateSearch();
@@ -50,10 +62,9 @@ search.addEventListener('input', function (event) {
 					const city = element.name;
 					const state = element.state;
 					const country = element.country;
-                    const latitude = element.lat;
-                    const longitude = element.lon;
-					const locationInfo =
-						city + ', ' + state + ', ' + country;
+					const latitude = element.lat;
+					const longitude = element.lon;
+					const locationInfo = city + ', ' + state + ', ' + country;
 					const suggestion = document.createElement('li');
 					suggestion.textContent = locationInfo;
 					searchSuggestions.appendChild(suggestion);
@@ -61,6 +72,7 @@ search.addEventListener('input', function (event) {
 						search.value = locationInfo;
 						searchSuggestions.innerHTML = '';
 						getWeather(latitude, longitude, api_key);
+						search.value = '';
 					});
 				});
 			}
@@ -69,10 +81,4 @@ search.addEventListener('input', function (event) {
 			alert('An error occurred while fetching the data.');
 		});
 	}
-});
-
-const container = document.querySelector('#container');
-const button = document.querySelector('#new-image');
-button.addEventListener('click', () => {
-	console.log('get weather from api');
 });
