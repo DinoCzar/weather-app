@@ -1,3 +1,7 @@
+body {
+    background-image: url(../src/images/clouds.jpeg);
+}
+
 form input {
 	display: block;
 	padding: 5px;
@@ -29,4 +33,66 @@ li {
 	background-color: lightgray;
 	margin-top: 5px;
 	padding: 5px;
+}
+
+/* weather types */
+
+.thunderstorm {
+    background-image: url(../src/images/thunderstorm.jpeg);
+}
+
+.drizzle {
+    background-image: url(../src/images/drizzle.jpeg);
+}
+
+.rain {
+    background-image: url(../src/images/rain.jpeg);
+}
+
+.snow {
+    background-image: url(../src/images/snow.jpeg);
+}
+
+.mist {
+    background-image: url(../src/images/mist.webp);
+}
+
+.smoke {
+    background-image: url(../src/images/smoke.webp);
+}
+
+.haze {
+    background-image: url(../src/images/haze.jpeg);
+}
+
+.dust {
+    background-image: url(../src/images/dust.jpeg);
+}
+
+.fog {
+    background-image: url(../src/images/fog.webp);
+}
+
+.sand {
+    background-image: url(../src/images/sand.jpeg);
+}
+
+.ash {
+    background-image: url(../src/images/ash.jpeg);
+}
+
+.squall {
+    background-image: url(../src/images/squall.jpeg);
+}
+
+.tornado {
+    background-image: url(../src/images/tornado.jpeg);
+}
+
+.clear {
+    background-image: url(../src/images/clear.jpeg);
+}
+
+.clouds {
+    background-image: url(../src/images/clouds.jpeg);
 }
