@@ -56,10 +56,10 @@ function displayWeather(
 	displayMain.textContent = main;
 	displayDescription.textContent = description;
 	displayTemp.textContent = 'Temperature: ' + temp + '\u00B0F';
-	displayTempMin.textContent = 'Low Temp: ' + tempMin + '\u00B0F';
-	displayTempMax.textContent = 'High Temp: ' + tempMax + '\u00B0F';
+	displayTempMin.textContent = 'Low: ' + tempMin + '\u00B0F';
+	displayTempMax.textContent = 'High: ' + tempMax + '\u00B0F';
 	displayHumidity.textContent = 'Humidity: ' + humidity + '%';
-	displayWindSpeed.textContent = 'Wind Speed: ' + windSpeed + 'mph';
+	displayWindSpeed.textContent = 'Wind: ' + windSpeed + 'mph';
 	const cssSelector = main.charAt(0).toLowerCase() + main.slice(1);
 	displayDiv.classList.add(cssSelector);
 }
