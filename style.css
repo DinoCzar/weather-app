@@ -6,21 +6,21 @@
 
 body {
 	display: grid;
-    justify-content: center;
+	justify-content: center;
 }
 
 #display-div {
-    width: 350px;
-    height: 675px
+	width: 350px;
+	height: 675px;
 }
 
 img {
-    height: 100%;
+	height: 100%;
 }
 
 #container {
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1.5fr 1.5fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 3fr 2fr 1fr 1fr 1fr 1fr;
 	gap: 20px;
 }
 
@@ -63,14 +63,13 @@ form label {
 ul {
 	margin-block-start: 0px;
 	padding-inline-start: 5px;
-    list-style: none;
+	list-style: none;
 }
 
 li {
 	background-color: white;
 	margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 10px;
+	margin-right: 5px;
 	padding: 5px;
 }
 
@@ -101,6 +100,7 @@ li {
 #city {
 	grid-area: 1 / 1 / 2 / 3;
 	font-size: 40px;
+	text-align: center;
 }
 
 #main-div {
