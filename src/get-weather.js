@@ -50,6 +50,8 @@ function displayWeather(
 	displayTempMax.textContent = 'High Temp: ' + tempMax;
 	displayHumidity.textContent = 'Humidity: ' + humidity;
 	displayWindSpeed.textContent = 'Wind Speed: ' + windSpeed;
+    const cssSelector = main.charAt(0).toLowerCase() + main.slice(1);
+    document.body.classList.add(cssSelector);
 }
 
 export default getWeather;

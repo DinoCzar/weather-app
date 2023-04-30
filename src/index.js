@@ -37,6 +37,7 @@ function validateSearch() {
 search.addEventListener('blur', validateSearch);
 
 search.addEventListener('input', function (event) {
+    document.body.className = '';
 	searchSuggestions.innerHTML = '';
     displayCity.innerHTML = '';
     displayMain.innerHTML = '';
