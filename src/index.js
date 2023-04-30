@@ -50,7 +50,10 @@ search.addEventListener('input', function (event) {
 					const suggestion = document.createElement('li');
 					suggestion.textContent = locationInfo;
 					searchSuggestions.appendChild(suggestion);
-					console.log(locationInfo);
+					suggestion.addEventListener('click', () => {
+						search.value = locationInfo;
+                        searchSuggestions.innerHTML = '';
+					});
 				});
 			}
 		}
